@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url("/static/wallpaper/wallpaper1.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #c71b1b;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a, .navbar li form button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar li a:hover, .navbar li form button:hover {
+    background-color: #ec2a2a;
+}
+
+.logout-button {
+    font-size: 16px;
+    color: white;
+}
+
+.logout-form {
+    display: inline-block;
+    margin: 0;
+}
+
+.content {
+    margin-top: 60px;
+    padding: 20px;
+}

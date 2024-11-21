@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}Ticaret Sicil Gazetesi{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+{% if is_uploaded %}
+<object data="media/{{ pdf_path }}#page=1&toolbar=0" type="application/pdf" width="500px" height="500px"></object>
+
+
+
+
+
+
+{% endif %}
+
+<section>
+    <h1>Ticaret Sicil Gazetesi</h1>
+    <form action="{% url 'upload:ticaret_sicil_odasi' %}" method = 'POST'  enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }} 
+
+        <button type="submit" name="action" value="submit" {% if is_uploaded%}
+        style="background-color: rgb(61, 64, 80);"
+        disabled
+{% endif %}
+>Submit File</button>
+
+
+   
+        <button type="submit" name="action" value="clear">Clear File</button>
+
+
+        {% if file == None %}
+        <p></p>
+
+        {% else %}
+        <p>{{ file }}</p>
+        {% endif %}
+
+
+    </form>
+</section>
+
+
+{% endblock content %}

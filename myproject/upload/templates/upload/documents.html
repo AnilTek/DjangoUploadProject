@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block title %}
+    Belge Yükleme Sayfası
+{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/documents.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+    <h2>Lütfen İlgili Belgeleri Yükleyin</h2>
+    <div class="document-grid">
+        <div class="document-item"  id = 'calisma_ruhsati' 
+        {% if is_files_uploaded.calisma_ruhsati %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}
+        >
+            <form action="{% url 'upload:calisma_ruhsati' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Calisma_ruhsati_izinler"
+                {% if is_application_sended.adres_degisikligi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Çalışma Ruhsatı ve İzinler Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"  id = 'faaliyet_belgesi'
+        {% if is_files_uploaded.faaliyet_belgesi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:faaliyet_belgesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Faaliyet_belgesi"
+                {% if is_application_sended.adres_degisikligi or is_application_sended.banka_hesabi_acilisi_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Faaliyet Belgesi Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'imza_sirkuleri'
+        {% if is_files_uploaded.imza_sirkuleri %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:imza_sirkuleri' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Imza_sirkuleri"
+                {% if is_application_sended.bulut_hizmeti_talebi or is_application_sended.banka_hesabi_acilisi_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>İmza Sirküleri Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'oda_kayit_belgesi'
+        {% if is_files_uploaded.oda_kayit_belgesi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:oda_kayit_belgesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Oda_kayit_belgesi"
+                {% if is_application_sended.bulut_hizmeti_talebi or is_application_sended.fiziksel_pos_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Oda Kayıt Belgesi Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'kurulus_sozlesmesi'
+        {% if is_files_uploaded.kurulus_sozlesmesi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:kurulus_sozlesmesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Kurulus_sozlesmesi"
+                {% if is_application_sended.web_sitesi_talebi or is_application_sended.fiziksel_pos_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Kuruluş Sözleşmesi Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'sirketin_mali_bilgileri'
+        {% if is_files_uploaded.sirketin_mali_bilgileri %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:sirketin_mali_bilgileri' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Sirketin_mali_bilgileri"
+                {% if is_application_sended.hat_talebi or is_application_sended.hgs_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Şirketin Mali Bilgileri Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"  id = 'ticaret_sicil_odasi'
+        {% if is_files_uploaded.ticaret_sicil_odasi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:ticaret_sicil_odasi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Ticaret_sicil_gazetesi"
+                {% if is_application_sended.hgs_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Ticaret Sicil Gazetesi Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"  id = 'ticaret_sicil_tasdiknamesi'
+        {% if is_files_uploaded.ticaret_sicil_tasdiknamesi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:ticaret_sicil_tasdiknamesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Ticaret_sicil_tasdiknamesi"
+                {% if is_application_sended.sanal_pos_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Ticaret Sicil Tasdiknamesi Yükle</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"  id = 'vergi_levhasi'
+        {% if is_files_uploaded.vergi_levhasi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:vergi_levhasi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Vergi_levhasi"
+                {% if is_application_sended.kep_talebi or is_application_sended.sanal_pos_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Vergi Levhası Yükle</button>
+            </form>
+        </div>
+
+        
+        
+        <div class="document-item"  id = 'yetki_belgesi'
+        {% if is_files_uploaded.yetki_belgesi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:yetki_belgesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Yetki_belgesi"
+                {% if is_application_sended.kep_talebi or is_application_sended.web_sitesi_talebi  %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Yetki Belgesi Yükle</button>
+            </form>
+        </div>
+
+        
+
+    </div>
+    <p></p>
+
+    
+    
+    
+
+    
+</div>
+{% endblock content %}

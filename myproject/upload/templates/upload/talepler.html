@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+
+{% block title %}Talepler{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/talepler_home.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+<div class="container">
+    <h2>Talepler</h2>
+    <div class="document-grid">
+
+
+        <div class="document-item"  id = 'hat_talebi' 
+        {% if is_application_sended.hat_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}
+        >
+            <form action="{% url 'upload:hat_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="hat_talebi"
+                {% if is_application_sended.hat_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Hat Talebi</button>
+            </form>
+        </div>
+
+
+        <div class="document-item"  id = 'hgs_talebi'
+        {% if is_application_sended.hat_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:hgs_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="hgs_talebi"
+                {% if is_application_sended.hgs_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>HGS Talebi</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'sanal_pos_talebi'
+        {% if is_application_sended.sanal_pos_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:sanal_pos_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="sanal_pos_talebi"
+                {% if is_application_sended.sanal_pos_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}> Sanal POS Talebi</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'fiziksel_pos_talebi'
+        {% if is_application_sended.fiziksel_pos_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:fiziksel_pos_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="fiziksel_pos_talebi"
+                {% if is_application_sended.fiziksel_pos_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Fiziksel POS talebi</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'web_sitesi_talebi'
+        {% if is_application_sended.web_sitesi_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:web_sitesi_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="web_sitesi_talebi"
+                {% if is_application_sended.web_sitesi_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Web Sitesi</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"   id = 'bulut_hizmeti_talebi'
+        {% if is_application_sended.bulut_hizmeti_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:bulut_hizmeti_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="bulut_hizmeti_talebi"
+                {% if is_application_sended.bulut_hizmeti_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Bulut Hizmeti</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"  id = 'adres_degisikligi'
+        {% if is_application_sended.adres_degisikligi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:adres_degisikligi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="adres_degisikligi"
+                {% if is_application_sended.adres_degisikligi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Adres Değişikliği</button>
+            </form>
+        </div>
+
+
+        <div class="document-item"  id = 'banka_hesabi_acilisi_talebi'
+        {% if is_application_sended.banka_hesabi_acilisi_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:banka_hesabi_acilisi_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="banka_hesabi_acilisi_talebi"
+                {% if is_application_sended.banka_hesabi_acilisi_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Banka Hesabı Açılışı</button>
+            </form>
+        </div>
+
+
+
+        <div class="document-item"  id = 'kep_talebi'
+        {% if is_application_sended.kep_talebi %}
+                style="background-color: rgb(61, 64, 80);"
+        {% endif %}>
+            <form action="{% url 'upload:kep_talebi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="kep_talebi"
+                {% if is_application_sended.kep_talebi %}
+                disabled
+                {% else %}
+                enabled
+                {% endif %}>Kep Talebi</button>
+            </form>
+        </div>
+        
+       
+        
+
+    </div>
+
+    
+
+  
+    
+
+    
+</div>
+{% endblock content %}

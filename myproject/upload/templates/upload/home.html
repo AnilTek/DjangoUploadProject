@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="center-container">
+    <div>
+        <h1>Kurumsal Belge Doğrulama Sitesi</h1>
+        <p>Belgelerinizi güvenli ve hızlı bir şekilde doğrulayın</p>
+    </div>
+</div>
+{% endblock content %}

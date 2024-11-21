@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}Kep Talebi{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/talepler.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+<div class="form-container">
+    <div class="form-box">
+        <h1>Kep Talebi</h1>
+
+        <div class="document-item"  id = 'vergi_levhasi'>
+            <form action="{% url 'upload:vergi_levhasi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Vergi_levhasi">Vergi Levhası Yükle
+                    {% if is_files_uploaded.vergi_levhasi %}
+                    <span class="emoji">✔</span>
+                    {% else %}
+                    <span class="emoji">✘</span>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+
+        
+        
+        <div class="document-item"  id = 'yetki_belgesi'>
+            <form action="{% url 'upload:yetki_belgesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="Yetki_belgesi">Yetki Belgesi Yükle
+                    {% if is_files_uploaded.yetki_belgesi %}
+                    <span class="emoji">✔</span>
+                    {% else %}
+                    <span class="emoji">✘</span>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+
+        <form action="{% url 'upload:kep_talebi' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value='create_request'>
+            <button type="submit" name="submit_button" value="kep_talebi"
+                {% if not disable_button %}disabled{% endif %}
+            >
+                Talep Olustur
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

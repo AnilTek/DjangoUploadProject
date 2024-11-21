@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="center-container">
+    <div>
+        <h1>Gerekli Belgeler Yuklenmistir...</h1>
+        <p>Isbirliginiz icin tesekkur ederiz</p>
+    </div>
+</div>
+{% endblock content %}

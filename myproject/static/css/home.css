@@ -1,0 +1,24 @@
+    /* Centering the content on the page */
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        
+        
+    }
+
+    /* Styling the heading */
+    .center-container h1 {
+        font-size: 3em;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Styling the subtext */
+    .center-container p {
+        font-size: 1.5em;
+        color: #666;
+        margin-top: 20px;
+    }

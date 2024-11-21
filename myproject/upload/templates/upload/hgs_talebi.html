@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}Kep Talebi{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/talepler.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+
+<div class="form-container">
+    <div class="form-box">
+        <h1>Hgs Talebi</h1>
+
+        <div class="document-item"  id = 'sirketin_mali_bilgileri'>
+            <form action="{% url 'upload:sirketin_mali_bilgileri' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="sirketin_mali_bilgileri">Sirketin Mali Bilgileri Yukle
+                    {% if is_files_uploaded.sirketin_mali_bilgileri %}
+                    <span class="emoji">✔</span>
+                    {% else %}
+                    <span class="emoji">✘</span>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+
+        
+        
+        <div class="document-item"  id = 'ticaret_sicil_odasi'>
+            <form action="{% url 'upload:ticaret_sicil_odasi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="ticaret_sicil_odasi">Ticaret Sicil Dosyasi Yukle
+                    {% if is_files_uploaded.ticaret_sicil_odasi %}
+                    <span class="emoji">✔</span>
+                    {% else %}
+                    <span class="emoji">✘</span>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+
+        <form action="{% url 'upload:hgs_talebi' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value='create_request'>
+            <button id="submit-button" type="submit"
+                {% if disable_button %}
+                    enabled
+                {% else %}
+                    disabled
+                {% endif %}
+            >Talep Olustur</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

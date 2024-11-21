@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Kep Talebi{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/talepler.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+<div class="form-container">
+    <div class="form-box">
+        <h1>Bulut Hizmeti Talebi</h1>
+
+        <div class="document-item"  id = 'imza_sirkuleri'>
+            <form action="{% url 'upload:imza_sirkuleri' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="imza_sirkuleri">Imza Sirkuleri Yukle
+                    {% if is_files_uploaded.imza_sirkuleri %}
+                    <span class="emoji">✔</span>
+                    {% else %}
+                    <span class="emoji">✘</span>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+
+        
+        
+        <div class="document-item"  id = 'oda_kayit_belgesi'>
+            <form action="{% url 'upload:oda_kayit_belgesi' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" name="document_type" value="oda_kayit_belgesi">Oda Kayit Belgesi
+                    {% if is_files_uploaded.oda_kayit_belgesi %}
+                    <span class="emoji">✔</span>
+                    {% else %}
+                    <span class="emoji">✘</span>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+        <form action="{% url 'upload:bulut_hizmeti_talebi' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value='create_request'>
+            <button id="submit-button" type="submit"
+                {% if disable_button %}
+                    enabled
+                {% else %}
+                    disabled
+                {% endif %}
+            >Talep Olustur</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.form-box h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-box input {
+    width: calc(100% - 20px); /* Kenar boşluklarına göre hesapla */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Kutunun kenarlarını dahil et */
+}
+
+.form-box button {
+    background-color: #c71b1b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.form-box button:hover {
+    background-color: #a73232;
+}
+
+
+/* Google Login Button */
+.google-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.google-login-button:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.credit {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+    color: #888;
+}
+
+.credit a {
+    text-decoration: none;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.credit a:hover {
+    color: #555;
+}

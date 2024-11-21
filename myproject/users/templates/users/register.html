@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% load socialaccount %}
+{% block title %}
+    Register a Company 
+{% endblock title %}
+
+{% block styles %}
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-box">
+        <h1>Kurum Kayıt</h1>
+        <form action="/users/register/" method="post">
+            {% csrf_token %}
+           
+            <div class="form-group">
+                <label for="id_email">Email Adresi:</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_password1">Şifre:</label>
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_password2">Şifreyi Onaylayın:</label>
+                {{ form.password2 }}
+            </div>
+
+            <button type="submit">Kayıt Ol</button>
+
+            <!-- Google Login Button -->
+            <a href="{% provider_login_url 'google' %}?next=/" class="google-login-button">
+                <img src="{% static 'css/google.png' %}" alt="Google Logo" class="google-logo">
+                Google ile Devam Et
+            </a>
+
+            <p class="credit">
+                <a href="https://www.flaticon.com/free-icons/google" title="google icons" target="_blank">
+                    
+                </a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock content %}
